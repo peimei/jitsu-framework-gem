@@ -1,0 +1,12 @@
+== 0.0.3 April 15th, 2008
+
+* Can now choose, assemble, install, add routes, install rails, etc from command line!
+
+== 0.0.2 April 15th, 2008
+
+* Got basic deployment scripts working [Pei Mei]
+
+== 0.0.1 April 14th, 2008
+
+* Created basic jitsu framework gem [Pei Mei]
+

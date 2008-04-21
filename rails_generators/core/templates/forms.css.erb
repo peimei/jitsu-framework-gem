@@ -1,0 +1,48 @@
+/ FORMS
+.form
+  :border         1px solid
+  :border-bottom  none
+  :border-color   = !GREY_BORDER
+  :padding        16px
+  
+.info
+  :padding        16px
+  
+.button
+  :padding        8px
+  :background     url(../images/plain/buttons_bg.gif) repeat-x
+  :border         1px solid
+  :border-color   = !GREY_BORDER
+  :border-top     none
+  :height         32px
+
+.button #submit
+  :float          left
+  :padding        4px
+  :margin         2px 0 4px 200px
+  
+.button .cancel
+  :float          right
+  :margin         8px 16px 8px 0
+
+label
+  :float          left
+  :text-align     left
+  :margin         0 16px 0 12px
+  :width          120px
+  
+input[type=text], input[type=password]
+  :padding        4px
+  :color          = !BASIC_GREY
+  :background     #FFFFFF none repeat scroll 0%
+  :border         1px solid
+  :border-color   = !BASIC_GREY
+  :width          200px
+  
+input[type=text].short, input[type=password].short
+  :width          140px
+  
+textarea:focus, input[type=text]:focus, input[type=password]:focus, select:focus
+  :background     #FFFFFF none repeat scroll 0%
+  :border         1px solid
+  :border-color   = !RICH_BLACK

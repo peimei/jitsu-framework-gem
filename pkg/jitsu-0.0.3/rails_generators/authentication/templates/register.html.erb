@@ -1,0 +1,17 @@
+%div{:class => 'register_form'}
+  = error_messages_for(@<%= file_name %>)
+
+  - form_for(@<%= file_name %>) do |form|
+    %label{:for => "login"} Login
+    = form.text_field(:login)
+
+    %label{:for => "email"} Email
+    = form.text_field(:email)
+
+    %label{:for => "password"} Password
+    = form.password_field(:password)
+
+    %label{:for => "password_confirmation"} Confirm Password
+    = form.password_field(:password_confirmation)
+
+    = submit_tag('Sign up')

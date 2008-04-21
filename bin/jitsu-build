@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+require 'jitsu'
+
+abort "Usage: #{File.basename($0)} <path>" if ARGV.empty?
+
+path = ARGV.shift
+puts "[in] #{path}"
+
+abort "[exit] path doesn't exist." unless File.exists?(path)
+
+puts "[out] loading build recipe"
+
+puts "[out] collecting packages"
+packages = []
+File.open("#{path}/config/build.jitsu", "r") do |file|
+  while (line = file.gets)
+    package = line.gsub(/^\+/, '')
+    unless package.length == 0
+      puts "[out] added package: #{package}"
+      packages << package.chomp
+    end
+  end
+end
+
+puts "[out] generating rails app"
+`rails #{path}`
+`rm #{path}/public/index.html`
+
+puts "[out] installing haml"
+`haml --rails #{path}`
+
+puts "[out] loading build recipe"
+
+puts "[out] setting up the package builder"
+builder = Jitsu::PackageBuilder.new(path)
+
+puts "[out] collecting packages"
+packages = []
+File.open("#{path}/config/build.jitsu", "r") do |file|
+  while (line = file.gets)
+    package = line.gsub(/^\+/, '')
+    unless package.length == 0
+      puts "[out] added package: #{package}"
+      packages << package.chomp
+    end
+  end
+end
+
+puts "[out] installing packages:"
+packages.each {|package| builder.install_package(package)}
+
+puts "[out] installing routes:"
+packages.each {|package| builder.install_route_info(package)}
+
+puts "[out] migrating schema"
+`cd #{path} && rake db:migrate`
+
+puts "[out] DONE!"

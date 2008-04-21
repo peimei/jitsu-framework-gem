@@ -1,0 +1,9 @@
+%div{:class => 'login_form'}
+- form_for(:user, :url => @<%=controller_plural_name%>) do |form|
+  %label{:for => 'login'} Login:
+  = form.text_field(:login)
+
+  %label{:for => 'password'} Password:
+  = form.password_field(:password)
+
+  = submit_tag 'Log in'

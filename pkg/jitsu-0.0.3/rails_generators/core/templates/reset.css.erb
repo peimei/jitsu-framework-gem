@@ -1,0 +1,95 @@
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,input,textarea,p,blockquote,th,td,button
+  :margin               0
+  :padding              0
+
+a
+  :color                black
+  :text-decoration      underline
+
+a:hover
+  :text-decoration      none
+
+button:focus, button:active
+  :outline              none
+
+input:focus::-moz-inner-focus
+  :border-color         transparent
+
+a:focus, a:active
+  :outline              none
+
+button
+  :cursor               pointer
+  :background           none
+
+label
+  :display              block
+
+textarea
+  :width                100%
+  :height               100px
+
+fieldset,img,button
+  :border               0
+
+address,caption,cite,code,em,th,button
+  :font-style           normal
+  :font-weight          normal
+
+ol,ul
+  :list-style           none
+
+h1,h2,h3,h4,h5,h6,button
+  :font-size            100%
+  :font                 100% arial,clean,sans-serif
+  :font-weight          normal
+
+body
+  :font                 14px arial,clean,sans-serif
+  :*font-size           small
+  :*font                x-small
+
+body *
+  :line-height          1.22em
+
+table
+  :border-collapse      collapse
+  :border-spacing       0
+  :font-size            inherit
+  :font                 100%
+
+select,input,textarea
+  :font                 99% arial,clean,sans-serif
+  :border               1px solid #ACACAC
+  :padding              2px
+  
+pre,code
+  :font                 115% monospace
+  :*font-size           100%
+
+h1
+  :font-size            140%
+h2
+  :font-size            125%
+h3
+  :font-size            115%
+h4
+  :font-size            110%
+h5
+  :font-size            105%
+h6
+  :font-size            102%
+
+\:root
+  :overflow-y           scroll !important
+
+.clearfix:after
+  content:              "."
+  display:              block
+  height:               0
+  clear:                both
+  visibility:           hidden
+  
+.clearfix
+  display:              block
+  height:               1%
