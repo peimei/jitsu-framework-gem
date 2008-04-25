@@ -1,6 +1,0 @@
-%div{:id => 'login_menu'}
-  %div{:id => 'menu_end'} &nbsp;
-  %div{:class => 'horizontal_menu'}
-    = link_to( 'my account', user_path(current_user), :class => "home") if logged_in?
-    = link_to('log in', login_path) << link_to('register', register_path) unless logged_in?
-    = link_to('log out', logout_path) if logged_in?

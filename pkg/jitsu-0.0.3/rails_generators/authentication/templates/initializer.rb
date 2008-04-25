@@ -1,1 +1,0 @@
-ActionController::Base.class_eval {include AuthenticationSystem}

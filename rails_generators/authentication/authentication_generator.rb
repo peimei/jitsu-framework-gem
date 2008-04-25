@@ -161,15 +161,18 @@ class AuthenticationGenerator < Rails::Generator::NamedBase
                   File.join('app/helpers',
                             model_controller_class_path,
                             "#{model_controller_file_name}_helper.rb")
+      
+      # Add our rights helper
+      m.file 'rights_helper.rb', 'app/helpers/rights_helper.rb'
 
 
       # Controller templates
       m.template 'login.html.erb',  File.join('app/views', controller_class_path, controller_file_name, "new.html.haml")
       m.template 'register.html.erb', File.join('app/views', model_controller_class_path, model_controller_file_name, "new.html.haml")
       
-      # Add our AUthentication_system hook via an initializer
+      # Add our Authentication system hook via an initializer
       m.file 'initializer.rb', 'config/initializers/authentication_hook.rb'
-
+      
       if options[:include_activation]
         # Mailer templates
         %w( account_activation registration_notification ).each do |action|

@@ -13,24 +13,15 @@ module Jitsu
       case package
       when 'core'
         puts "[out]\t+core"
-        `cd #{path} && ./script/generate core`
-        `cd #{path} && ./script/generate theme #{theme}`
+        `cd #{path} && ./script/generate core -f`
+        `cd #{path} && ./script/generate theme #{theme} -f`
+        `haml --rails #{path}`
+        `cd #{path} && ./script/plugin install http://rspec.rubyforge.org/svn/tags/CURRENT/rspec`
+        `cd #{path} && ./script/plugin install http://rspec.rubyforge.org/svn/tags/CURRENT/rspec_on_rails`
 
       when 'authentication'
         puts "[out]\t+authentication"
         `cd #{path} && ./script/generate authentication user sessions`
-        replace_marker_in_file(
-          "#{path}/app/views/layouts/#{theme}/_header.html.haml",
-          "/- #AUTHENTICATION_LOGIN_MENU",
-          <<-END
-%div{:id => 'login_menu'}
-  %div{:id => 'menu_end'} &nbsp;
-  %div{:class => 'horizontal_menu'}
-    = link_to( 'my account', user_path(current_user), :class => "home") if logged_in?
-    = link_to('log in', login_path) << link_to('register', register_path) unless logged_in?
-    = link_to('log out', logout_path) if logged_in?
-          END
-        )
       end
     end
     

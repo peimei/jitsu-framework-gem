@@ -4,7 +4,7 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
     %title
-    = stylesheet_link_tag('reset', 'theme', 'forms' 'rails', :cache => true)
+    = stylesheet_link_tag('reset', 'theme', 'forms', 'rails', controller.controller_name, :cache => true)
     = javascript_include_tag(:all, :cache => true)
 
   %body{:id => controller.controller_name, :class => controller.action_name}
@@ -12,11 +12,13 @@
     %div{:id => 'wrapper', :class => 'wrap'}
 
       %div{:id => 'header'}
-        = render(:partial => "/layouts/<%=file_name%>/header")
+        = render(:partial => "/layouts/<%= file_name %>/header")
+      %div{:class => 'clearfix'}
 
-      %div{:id => 'main_menu'}
-        = render(:partial => '/layouts/<%=file_name%>/main_menu')
+    %div{:id => 'main_menu'}
+      = render(:partial => '/layouts/<%= file_name %>/main_menu')
 
+    %div{:id => 'wrapper', :class => 'wrap'}
       - unless flash.empty?
         %div{:id => 'messages'}
           - flash.each do |key, msg|
@@ -25,5 +27,5 @@
       %div{:id => 'content'}
         = yield
 
-    %div{:id => 'footer'}
-      = render(:partial => '/layouts/<%=file_name%>/footer')
+  %div{:id => 'footer'}
+    = render(:partial => '/layouts/<%= file_name %>/footer')

@@ -2,7 +2,7 @@
 .form
   :border         1px solid
   :border-bottom  none
-  :border-color   = !GREY_BORDER
+  :border-color   #eee
   :padding        16px
   
 .info
@@ -10,9 +10,9 @@
   
 .button
   :padding        8px
-  :background     url(../images/plain/buttons_bg.gif) repeat-x
+  :background     url(../images/<%= file_name %>/buttons_bg.gif) repeat-x
   :border         1px solid
-  :border-color   = !GREY_BORDER
+  :border-color   #eee
   :border-top     none
   :height         32px
 
@@ -33,10 +33,10 @@ label
   
 input[type=text], input[type=password]
   :padding        4px
-  :color          = !BASIC_GREY
+  :color          #eee
   :background     #FFFFFF none repeat scroll 0%
   :border         1px solid
-  :border-color   = !BASIC_GREY
+  :border-color   #eee
   :width          200px
   
 input[type=text].short, input[type=password].short
@@ -45,4 +45,4 @@ input[type=text].short, input[type=password].short
 textarea:focus, input[type=text]:focus, input[type=password]:focus, select:focus
   :background     #FFFFFF none repeat scroll 0%
   :border         1px solid
-  :border-color   = !RICH_BLACK
+  :border-color   = #000

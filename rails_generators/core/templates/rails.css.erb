@@ -1,6 +1,6 @@
 / RAILS VALIDATION
 .field_with_errors 
-  :background       url(../images/field_error_icon.gif) no-repeat 0 0
+  :background       url(../images/<%= file_name %>/field_error_icon.gif) no-repeat 0 0
   :padding          0 0 0 24px
 
 .field_error_message 
@@ -14,7 +14,7 @@
   :margin           0 0 17px 0
   :font-size        12pt
   :color            #fff
-  :background       #ef3030 url(../images/warning_icon.png) no-repeat 20px 8px
+  :background       #ef3030 url(../images/<%= file_name %>/warning_icon.png) no-repeat 20px 8px
   :min-height       40px
   :border           2px solid #991313
 
@@ -33,5 +33,4 @@
 #errorExplanation ul li 
   :font-size        11pt
   :list-style       square
-	:margin-left      30px
-
+  :margin-left      30px

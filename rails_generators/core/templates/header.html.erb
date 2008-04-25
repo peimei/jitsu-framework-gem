@@ -1,6 +1,9 @@
-/- #AUTHENTICATION_LOGIN_MENU
+%div{:id => 'box_1'}
+  %div{:id => 'top_menu'}
+    = render(:partial => '/layouts/<%= file_name %>/top_menu')
 
-%div{:id => 'logo'}
-  %img{:src => '/images/logo.gif'}
-      
-%div{:class => 'clear'}
+%div{:id => 'box_2'}
+  %img{:src => '/images/<%= file_name %>/logo.gif'}
+
+%div{:id => 'box_3'}
+  &nbsp;

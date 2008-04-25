@@ -24,10 +24,6 @@ end
 
 puts "[out] generating rails app"
 `rails #{path}`
-`rm #{path}/public/index.html`
-
-puts "[out] installing haml"
-`haml --rails #{path}`
 
 puts "[out] loading build recipe"
 
@@ -54,5 +50,9 @@ packages.each {|package| builder.install_route_info(package)}
 
 puts "[out] migrating schema"
 `cd #{path} && rake db:migrate`
+
+puts "[out] cleaning up"
+`rm #{path}/public/index.html`
+`rm -rf #{path}/test`
 
 puts "[out] DONE!"

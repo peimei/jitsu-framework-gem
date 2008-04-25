@@ -1,3 +1,0 @@
-class PagesController < ApplicationController
-  
-end
